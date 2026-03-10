@@ -9,6 +9,7 @@ import mongoose, { Schema } from "mongoose";
 * @property {string[]} pagado - Lista de métodos de pago utilizados
 * @property {number} abono - Monto abonado al pedido
 * @property {string} comentario - Comentarios adicionales sobre el pedido
+* @property {ObjectId} cliente -Id del documento del cliente
 */
 const pedidoSchema = new Schema(
     {
@@ -20,6 +21,7 @@ const pedidoSchema = new Schema(
         pagado: [String],
         abono: { type: Number },
         comentario: { type: String },
+        cliente: { type: Schema.Types.ObjectId, ref: 'usuario' },
     },
     { timestamps: true },
 );
